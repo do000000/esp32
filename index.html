@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control Servo</title>
+</head>
+<body>
+  <h1>Control Servo Motor</h1>
+  <button onclick="sendRequest('/open')">Open</button>
+  <button onclick="sendRequest('/close')">Close</button>
+
+  <script>
+    function sendRequest(endpoint) {
+      fetch('http://esp8266.local' + endpoint)
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+</body>
+</html>
